@@ -1,0 +1,16 @@
+global:
+  # メトリクスを収集する感覚
+  scrape_interval:     15s
+  external_labels:
+    monitor: 'codelab-monitor'
+
+# メトリクス収集の設定
+scrape_configs:
+  - job_name: prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["192.168.11.18:9090"]
+  - job_name: "node"
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["192.168.11.18:9100"]
